@@ -60,3 +60,113 @@
     </footer>
 </body>
 </html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+header {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 60vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+section {
+    padding: 40px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    // Save or send the form data (e.g., store in Google Sheets)
+    // For now, this is a simple email handler
+    $to = "youremail@example.com";
+    $subject = "New Contact Form Submission";
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    mail($to, $subject, $body);
+    echo "Thank you for your message!";
+}
+?>
